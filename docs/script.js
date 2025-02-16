@@ -56,7 +56,8 @@ class Canvas {
         this.ctx = this.canvas.getContext("2d", { willReadFrequently: true });
         this.width = this.canvas.width = window.innerWidth;
         this.height = this.canvas.height = window.innerHeight;
-        this.width < 768 ? (this.heartSize = 180) : (this.heartSize = 250);
+        // Angepasste Herzgröße: für kleinere Bildschirme größer, um auf einem iPhone gut sichtbar zu sein
+        this.width < 768 ? (this.heartSize = 300) : (this.heartSize = 350);
         this.mouseX = null;
         this.mouseY = null;
         this.hearts = [];
@@ -118,8 +119,8 @@ class Canvas {
 
         // Phasen-Management:
         if (phase === "assembled") {
-            // Im assembled-Zustand wird nur kurz gewartet bevor der Flugmodus startet; z.B. 500ms statt 3000ms
-            if (performance.now() - phaseStartTime > 50) {
+            // Im assembled-Zustand wird kurz gewartet, bevor der Flugmodus startet
+            if (performance.now() - phaseStartTime > 500) {
                 phase = "flying";
                 phaseStartTime = performance.now();
             }
@@ -140,7 +141,7 @@ class Canvas {
         this.hearts = [];
         this.width = this.canvas.width = window.innerWidth;
         this.height = this.canvas.height = window.innerHeight;
-        this.width < 768 ? (this.heartSize = 180) : (this.heartSize = 250);
+        this.width < 768 ? (this.heartSize = 300) : (this.heartSize = 350);
     }
 }
 
