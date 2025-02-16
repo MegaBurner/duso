@@ -15,9 +15,9 @@ body {
 /* Zentraler Text im Canvas */
 #centerText {
     position: absolute;
-    top: 40%;
-    left: 60%;
-    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -70%);
     z-index: 2;
     color: white;
     font-size: 24px;
